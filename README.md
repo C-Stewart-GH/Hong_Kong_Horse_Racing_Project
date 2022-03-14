@@ -1,159 +1,124 @@
-# Machine_Learning_I
-Github repo for all of the Machine Learning Projects
+<a name="BackToTop"></a>
 
-# races.csv
-Each line describes the condition of an individual race.
+# Hong Kong Horse Racing Performance Prediction using Machine Learning Methods
 
-race_id - unique identifier for the race
+**Contributors: Cameron Stewart, Nathan Deinlein, Chris Roche, Ryan Kinney**
 
-date - date of the race, in YYYY-MM-DD format (note that the dates given have been obscured and are not the real ones, although the durations between each race should be correct)
+>The goal of this project was to classify the performance of horses during races in Hong Kong. The purpose of this project was purely academic to explore the use of many classification and clustering algorithms. The classification was for two target variables: Win and Show. Win represents whether or not a horse won the race and show represents whether or not the horse finished in the top three. Both are represented by a binary 0 or 1 value. Precision and AUC were used as the primary evaluation metrics in an imbalanced dataset. The project was sprit into 4 parts with a detailed report written for each. Part 1 - The team explored and visualized the data along with the relationships within and between variables. Part 2 and 3 - Explore using Logistic Regression, Support Vector Machines, KNN, Naive Bayes, and Random Forest for Classification. Part 4 - Explore using Clustering to create features that can be used for Classification. The detailed reports are linked below.
 
-venue - a 2-character string, representing which of the 2 race courses this race took place at: ST = Shatin, HV = Happy Valley
+[Part 1 - EDA Report](../main/1_EDA/EDA_Final.ipynb)
 
-race_no - race number of the race in the day's meeting
+[Part 2 - SVM and LR Modeling Report](../main/2_SVM_LR_Modeling/SVM_LR_Modeling_Final.ipynb)
 
-config - race track configuration, mostly related to the position of the inside rail. For more details, see the HKJC website.
+[Part 3 - KNN, NB, and RF Modeling Report](../main/3_KNN_NB_RF_Modeling/KNN_NB_RF_Modeling_Final.ipynb)
 
-surface - a number representing the type of race track surface: 1 = dirt, 0 = turf
+[Part 4 - Clustering Report](../main/4_Clustering/Clustering_Final.ipynb)
 
-distance - distance of the race, in metres
+---
 
-going - track condition. For more details, see the HKJC website.
+## Table of Contents
+- [Part 1 - EDA](#P1)
+- [Part 2 - SVM and LR Modeling](#P2)
+- [Part 3 - KNN, NB, and RF Modeling](#P3)
+- [Part 4 - Clustering](#P4)
+- [References](#References)
 
-horse_ratings - the range of horse ratings that may participate in this race
+---
 
-prize - the winning prize, in HK Dollars
+<a name="P1"></a>
 
-race_class - a number representing the class of the race
+## Part 1 - EDA
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157994781-70e46845-b80d-4ac9-b466-678e813ab224.png">
 
-sec_time1 - time taken by the leader of the race to reach the end of the end of the 1st sectional point (sec)
+All links in [References](#References)
 
-sec_time2 - time taken by the leader of the race to reach the end of the 2nd sectional point (sec)
+<a name="P2"></a>
 
-sec_time3 - time taken by the leader of the race to reach the end of the 3rd sectional point (sec)
+## Part 2 - SVM and LR Modeling
+First, we looked at the response variable Texas Covid Case Count to determine stationarity. Based on the autocorrelations and the Parzen window, there is strong evidence of wandering and we see some evidence of a seven-day periodic trend both causing non-constant mean. We speculate the seven-day periodic trend is likely attributed to some sort of reporting bias. The first and second have autocorrelation comparison gives us confidence the autocorrelation is staying relatively constant. Since the data is non-stationary, the data will need to be differenced and/or have the frequency removed in the models to stationarize the data.
 
-sec_time4 - time taken by the leader of the race to reach the end of the 4th sectional point, if any (sec)
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157996557-1dd21c09-dddc-4d7b-954a-16e351224524.png">
 
-sec_time5 - time taken by the leader of the race to reach the end of the 5th sectional point, if any (sec)
+Next, we looked at the included features that could help us model the response. Google mobility trends offer us insight into the relative activity into different public sectors. Vaccinations contribute to decreasing the rate of spread. Covid testing can be a leading indicator that describes the relative proportion of the population who thinks they may have covid.
 
-sec_time6 - time taken by the leader of the race to reach the end of the fourth sectional point, if any (sec)
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157996581-22939eac-6d0c-406d-875b-c0980beee62e.png">
 
-sec_time7 - time taken by the leader of the race to reach the end of the fourth sectional point, if any (sec)
+[Back to Top](#BackToTop)
 
-time1 - time taken by the leader of the race in the 1st section only (sec)
+---
 
-time2 - time taken by the leader of the race in the 2nd section only (sec)
+<a name="P3"></a>
 
-time3 - time taken by the leader of the race in the 3rd section only (sec)
+## Part 3 - KNN, NB, and RF Modeling
 
-time4 - time taken by the leader of the race in the 4th section only, if any (sec)
+The team first explored a simple univariate ARIMA model. By differencing the data and finding the lowest ARMA AIC, we were able to identify the ideal ARIMA model.
 
-time5 - time taken by the leader of the race in the 5th section only, if any (sec)
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157997288-321870de-ed69-4f95-a23a-d9566b308052.png">
 
-time6 - time taken by the leader of the race in the 6th section only, if any (sec)
+Plotting the 21-day forecast of Texas Covid Case Count with a 95% confidence interval.
 
-time7 - time taken by the leader of the race in the 7th section only, if any (sec)
+<img width="427" alt="image" src="https://user-images.githubusercontent.com/37990637/157997317-9b0b6ce2-2d1c-412a-82f1-b1372065d3da.png">
 
-place_combination1 - placing horse no (1st)
+Next, the team explored a multi-variate Vector Autoregressive (VAR) model. All the explanatory variables were included in this model. Utilizing AIC and BIC, we confirmed a lag of 8 was the ideal lag for this model. Plotted are the 95% confidence intervals for the forecast of all the included variables. To the right, are the features and coefficients in the model along with their significance.
 
-place_combination2 - placing horse no (2nd)
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157997444-03a944b9-90d5-49c0-86b1-3dcdc4e965d8.png">
 
-place_combination3 - placing horse no (3rd)
+Plotting the 21-day forecast of Texas Covid Case Count with a 95% confidence interval.
 
-place_combination4 - placing horse no (4th)
+<img width="466" alt="image" src="https://user-images.githubusercontent.com/37990637/157997459-a3ecddb1-3045-4b8d-a09b-0cdb6cb70f89.png">
 
-placedividend1 - placing dividend paid (for placecombination1)
+Moving into more complex models, the team trialed a Multi-Layer Perceptron (MLP) Model. Below, is a mapping of the network along with the chosen parameters of the model. The model was trained 20 different times and the median value of the different models was used as the forecast. The number of layers and nodes per layer was verified by cross validation.
 
-placedividend2 - placing dividend paid (for placecombination2)
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157997503-639e5e6d-9f23-4ce0-82fb-9b65473b9aa4.png">
 
-placedividend3 - placing dividend paid (for placecombination2)
+Plotting the 21-day forecast of Texas Covid Case Count. Colors: Blue - Actual Case Count, Black - Forecast of Case Count, Grey - 20 different trained models
 
-placedividend4 - placing dividend paid (for placecombination2)
+<img width="478" alt="image" src="https://user-images.githubusercontent.com/37990637/157997520-d8b39f6b-0af2-4bf4-b984-c04e8f13288f.png">
 
-win_combination1 - winning horse no
+With both the VAR and MLP models outperforming the more simplistic ARIMA model, and ensemble model was generated using both models. The mean of the forecast of both models was used to forecast Case Count. The plot shows the 21-day forecast of Texas Covid Case Count.
 
-windividend1 - winning dividend paid (for wincombination1)
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157997558-e4902723-0bf9-4c91-80fd-f427dcef1e5e.png">
 
-win_combination2 - joint winning horse no, if any
+To better see how the forecast of the ensemble model is performing, the last 100 observations were included in the plot.
 
-windividend2 - winning dividend paid (for wincombination2, if any)
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157997581-e9e289cc-e59d-4517-adab-dbfa2bfa5ce6.png">
 
-# runs.csv
-Each line describes the characteristics of one horse run, in one of the races given in races.csv.
+In the final comparison, we can see the RMSE of the ensemble model is the lowest for the short- and long-term forecast. Therefore, we will move forward with this as our final model.
 
-race_id - unique identifier for the race
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/37990637/157997604-5f7d9d67-ab11-4c51-836c-f3616020bbe9.png">
 
-horse_no - the number assigned to this horse, in the race
+[Back to Top](#BackToTop)
 
-horse_id - unique identifier for this horse
 
-result - finishing position of this horse in the race
+---
 
-won - whether horse won (1) or otherwise (0)
+<a name="P4"></a>
 
-lengths_behind - finishing position, as the number of horse lengths behind the winner
+## Part 4 - Clustering
 
-horse_age - current age of this horse at the time of the race
+The goal here was to forecast Texas Covid Case Count with Time Series analysis. After extracting and cleaning the data for analysis, our team performed a thorough analysis using simple and complex models such as ARIMA, VAR, MLP, and Ensembling Techniques. The final model with ensembling VAR and MLP achieved a final RMSE of 903 for the one week forecast and 1032 for the three-week forecast. For a state with over 29 million people, this forecast using mobility, vaccinations, and testing data is more than sufficient to give policy makers a clear idea of the upcoming covid case trends. With this information, more informed policy decisions can be made.
 
-horse_country - country of origin of this horse
+[Back to Top](#BackToTop)
 
-horse_type - sex of the horse, e.g. 'Gelding', 'Mare', 'Horse', 'Rig', 'Colt', 'Filly'
+---
 
-horse_rating - rating number assigned by HKJC to this horse at the time of the race
+<a name="References"></a>
 
-horse_gear - string representing the gear carried by the horse in the race. An explanation of the codes used may be found on the HKJC website.
+## References
 
-declared_weight - declared weight of the horse and jockey, in lbs
+[Kaggle Dataset](https://www.kaggle.com/gdaley/hkracing)
 
-actual_weight - actual weight carried by the horse, in lbs
+[Part 1 - EDA Report](../main/1_EDA/EDA_Final.ipynb)
 
-draw - post position number of the horse in this race
+[Part 2 - SVM and LR Modeling Report](../main/2_SVM_LR_Modeling/SVM_LR_Modeling_Final.ipynb)
 
-position_sec1 - position of this horse (ranking) in section 1 of the race
+[Part 3 - KNN, NB, and RF Modeling Report](../main/3_KNN_NB_RF_Modeling/KNN_NB_RF_Modeling_Final.ipynb)
 
-position_sec2 - position of this horse (ranking) in section 2 of the race
+[Part 4 - Clustering Report](../main/4_Clustering/Clustering_Final.ipynb)
 
-position_sec3 - position of this horse (ranking) in section 3 of the race
 
-position_sec4 - position of this horse (ranking) in section 4 of the race, if any
+##### Technologies
+R Studio  
+R version 4.1.2
 
-position_sec5 - position of this horse (ranking) in section 5 of the race, if any
-
-position_sec6 - position of this horse (ranking) in section 6 of the race, if any
-
-behind_sec1 - position of this horse (lengths behind leader) in section 1 of the race
-
-behind_sec2 - position of this horse (lengths behind leader) in section 2 of the race
-
-behind_sec3 - position of this horse (lengths behind leader) in section 3 of the race
-
-behind_sec4 - position of this horse (lengths behind leader) in section 4 of the race, if any
-
-behind_sec5 - position of this horse (lengths behind leader) in section 5 of the race, if any
-
-behind_sec6 - position of this horse (lengths behind leader) in section 6 of the race, if any
-
-time1 - time taken by the horse to pass through the 1st section of the race (sec)
-
-time2 - time taken by the horse to pass through the 2nd section of the race (sec)
-
-time3 - time taken by the horse to pass through the 3rd section of the race (sec)
-
-time4 - time taken by the horse to pass through the 4th section of the race, if any (sec)
-
-time5 - time taken by the horse to pass through the 5th section of the race, if any (sec)
-
-time6 - time taken by the horse to pass through the 6th section of the race, if any (sec)
-
-finish_time - finishing time of the horse in this race (sec)
-
-win_odds - win odds for this horse at start of race
-
-place_odds - place (finishing in 1st, 2nd or 3rd position) odds for this horse at start of race
-
-trainer_id - unique identifier of the horse's trainer at the time of the race
-
-jockey_id - unique identifier of the jockey riding the horse in this race
-
-# Source:
-https://www.kaggle.com/gdaley/hkracing?select=runs.csv
+[Back to Top](#BackToTop)
