@@ -6,15 +6,7 @@
 
 **Contributors: Cameron Stewart, Nathan Deinlein, Chris Roche, Ryan Kinney**
 
->The goal of this project was to classify the performance of horses during races in Hong Kong. The purpose of this project was purely academic to explore the use of many classification and clustering algorithms in Python's Scikit-Learn. The classification was for two target variables: Win and Show. Win represents whether or not a horse won the race and show represents whether or not the horse finished in the top three. Both are represented by a binary 0 or 1 value. Precision and AUC were used as the primary evaluation metrics in an imbalanced dataset. The project was sprit into 4 parts with a detailed report written for each. Part 1 - The team explored and visualized the data along with the relationships within and between variables. Part 2 and 3 - Explore using Logistic Regression, Support Vector Machines, KNN, Naive Bayes, and Random Forest for Classification. Part 4 - Explore using Clustering to create features that can be used for Classification. The detailed reports are linked below.
-
-[Part 1 - EDA Report](../main/1_EDA/EDA_Final.ipynb)
-
-[Part 2 - SVM and LR Modeling Report](../main/2_SVM_LR_Modeling/SVM_LR_Modeling_Final.ipynb)
-
-[Part 3 - KNN, NB, and RF Modeling Report](../main/3_KNN_NB_RF_Modeling/KNN_NB_RF_Modeling_Final.ipynb)
-
-[Part 4 - Clustering Report](../main/4_Clustering/Clustering_Final.ipynb)
+>The goal of this project was to classify the performance of horses during races in Hong Kong. The purpose of this project was purely academic to explore the use of many classification and clustering algorithms in Python's Scikit-Learn. The classification was for two target variables: Win and Show. Win represents whether or not a horse won the race and show represents whether or not the horse finished in the top three. Both are represented by a binary 0 or 1 value. Precision and AUC were used as the primary evaluation metrics in an imbalanced dataset. The project was sprit into 4 parts with a detailed report written for each. Part 1 - The team explored and visualized the data along with the relationships within and between variables. Part 2 and 3 - Explore using Logistic Regression, Support Vector Machines, KNN, Naive Bayes, and Random Forest for Classification. Part 4 - Explore using Clustering to create features that can be used for Classification. The detailed reports are linked at the top of each section.
 
 ---
 
@@ -31,7 +23,7 @@
 
 ## Part 1 - EDA
 
-[Part 1 - EDA Report](../main/1_EDA/EDA_Final.ipynb)
+[Part 1 - EDA Full Report](../main/1_EDA/EDA_Final.ipynb)
 
 All feature and response descriptions are discussed in detail inside the report. Every observation is the result of a single horse in a race. First, the team looked at missing values in the dataset. Any yellow horizontal bar represents an observation missing from that variable. The team recognized the position_sec, behind_sec, and time 4-6 were heavily missing. This is because of the non-standard sectioning of the races at different tracks. For this reason, the team dropped these features from consideration. Place odds is the only other feature with missing data with 4.7% missing. The team decided to impute the missing place_odds values with the mean. The total observations to 79,445.
 
@@ -55,7 +47,7 @@ Using the relationship insights from this EDA, the team was able to effectively 
 
 ## Part 2 - SVM and LR Modeling
 
-[Part 2 - SVM and LR Modeling Report](../main/2_SVM_LR_Modeling/SVM_LR_Modeling_Final.ipynb)
+[Part 2 - SVM and LR Modeling Full Report](../main/2_SVM_LR_Modeling/SVM_LR_Modeling_Final.ipynb)
 
 The full step-by-step analysis is included in the detailed report. Using standardization and one-hot encoding, the team uses Logistic Regression and Support Vector Machines to classify Win and Show. The team used 80% of the data for training and 20% for testing. The team outputted the models in a confusion matrix (shown below for the top SVM model) and reported key metrics such as accuracy and AUC. The team began including precision in Part 3 which is the best metric for this specific use case.
 
@@ -75,7 +67,7 @@ Support Vector Machines outperformed Logistic Regression in this classification.
 
 ## Part 3 - KNN, NB, and RF Modeling
 
-[Part 3 - KNN, NB, and RF Modeling Report](../main/3_KNN_NB_RF_Modeling/KNN_NB_RF_Modeling_Final.ipynb)
+[Part 3 - KNN, NB, and RF Modeling Full Report](../main/3_KNN_NB_RF_Modeling/KNN_NB_RF_Modeling_Final.ipynb)
 
 The full step-by-step analysis is included in the detailed report. The team moved to a stratified 10-fold cross validation to better account for the imbalance in the data while training and testing. The team also shifted to precision as the highest importance measurement metric. Using standardization and one-hot encoding, the team optimized models for K-Nearest Neighbors, Naive Bayes, and Random Forest Models. For KNN, the team explored multiple distance calculations and number of neighbors. For Naive Bayes, the team explored the Gaussian and Complement methods while optimizing the smoother parameter. For Random Forest, the team tuned the number of trees and the depth of the model. The report reviews models created using manual feature selection vs recursive feature selection. An example of the recursive feature selection plot is shown below.
 
@@ -101,7 +93,7 @@ Also, the report tests if the results of the models were statistically different
 
 ## Part 4 - Clustering
 
-[Part 4 - Clustering Report](../main/4_Clustering/Clustering_Final.ipynb)
+[Part 4 - Clustering Full Report](../main/4_Clustering/Clustering_Final.ipynb)
 
 The full step-by-step analysis is included in the detailed report. The team continued to use a stratified 10-fold cross validation to better account for the imbalance in the data while training and testing. The team also continued to use precision as the highest importance measurement metric. Using standardization and one-hot encoding, the team prepared the data. The team clustered key features in the training data using K-Means, DBSCAN, and Spectral Clustering. The appropriate number of clusters was determined using Silhouette Score and Distance of the nth neighbor plot.
 
@@ -137,13 +129,13 @@ AdaBoost was the best model and showed improvement over the second-best model Ra
 
 [Kaggle Dataset](https://www.kaggle.com/gdaley/hkracing)
 
-[Part 1 - EDA Report](../main/1_EDA/EDA_Final.ipynb)
+[Part 1 - EDA Full Report](../main/1_EDA/EDA_Final.ipynb)
 
-[Part 2 - SVM and LR Modeling Report](../main/2_SVM_LR_Modeling/SVM_LR_Modeling_Final.ipynb)
+[Part 2 - SVM and LR Modeling Full Report](../main/2_SVM_LR_Modeling/SVM_LR_Modeling_Final.ipynb)
 
-[Part 3 - KNN, NB, and RF Modeling Report](../main/3_KNN_NB_RF_Modeling/KNN_NB_RF_Modeling_Final.ipynb)
+[Part 3 - KNN, NB, and RF Modeling Full Report](../main/3_KNN_NB_RF_Modeling/KNN_NB_RF_Modeling_Final.ipynb)
 
-[Part 4 - Clustering Report](../main/4_Clustering/Clustering_Final.ipynb)
+[Part 4 - Clustering Full Report](../main/4_Clustering/Clustering_Final.ipynb)
 
 
 ##### Technologies
