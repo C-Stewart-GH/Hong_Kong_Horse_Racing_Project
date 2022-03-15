@@ -2,7 +2,7 @@
 <a name="BackToTop"></a>
 
 
-# Hong Kong Horse Racing Performance Prediction using Machine Learning Methods
+# Hong Kong Horse Racing Performance Classification using Machine Learning Methods
 
 **Contributors: Cameron Stewart, Nathan Deinlein, Chris Roche, Ryan Kinney**
 
