@@ -138,8 +138,9 @@ AdaBoost was the best model and showed improvement over the second-best model Ra
 [Part 4 - Clustering Full Report](../main/4_Clustering/Clustering_Final.ipynb)
 
 
-##### Technologies
-Jupyter Notebook 
+##### Technologies:
+
+Jupyter Notebook
 Python 3.7.7
 
 [Back to Top](#BackToTop)
