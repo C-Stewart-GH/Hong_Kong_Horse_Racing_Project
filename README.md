@@ -49,6 +49,8 @@ Using the relationship insights from this EDA, the team was able to effectively 
 
 [Back to Top](#BackToTop)
 
+---
+
 <a name="P2"></a>
 
 ## Part 2 - SVM and LR Modeling
