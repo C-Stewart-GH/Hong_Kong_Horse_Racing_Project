@@ -33,11 +33,11 @@
 
 [Part 1 - EDA Report](../main/1_EDA/EDA_Final.ipynb)
 
-All feature and response descriptions are discussed in detail inside the report. Every observation is the result of a single horse in a race. First, the team looked at missing values in the dataset. Any yellow horizontal bar represents an observation missing from that variable. The team recognized the position_sec, behind_sec, and time 4-6 were heavily missing. This is because of the non-standard sectioning of the races at different tracks. For this reason the team dropped these features from consideration. Place odds is the only other feature with missing data with 4.7% missing. The team decided to impute the missing place_odds values with the mean. The total observations to 79,445.
+All feature and response descriptions are discussed in detail inside the report. Every observation is the result of a single horse in a race. First, the team looked at missing values in the dataset. Any yellow horizontal bar represents an observation missing from that variable. The team recognized the position_sec, behind_sec, and time 4-6 were heavily missing. This is because of the non-standard sectioning of the races at different tracks. For this reason, the team dropped these features from consideration. Place odds is the only other feature with missing data with 4.7% missing. The team decided to impute the missing place_odds values with the mean. The total observations to 79,445.
 
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/37990637/158272715-96d4496d-3eee-4303-8409-6be82e9fce5d.png">
 
-Next, the team reviewed correlations between the variables which allow you to see where there a significant positive or negative relationships.
+Next, the team reviewed correlations between the variables which allow you to see where there are significant positive or negative relationships.
 
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/37990637/158272622-64bfc1d7-84e8-41df-9749-9e758ab2665c.png">
 
@@ -55,7 +55,7 @@ Using the relationship insights from this EDA, the team was able to effectively 
 
 [Part 2 - SVM and LR Modeling Report](../main/2_SVM_LR_Modeling/SVM_LR_Modeling_Final.ipynb)
 
-The full step-by-step analysis is included in the detailed report. Using standardization and one-hot encoding, the team uses Logistic Regression and Support Vector Machines to classify Win and Show. The team used 80% of the data for training and 20% for testing. The team outputted the models in a confusion matrix (shown below for the top SVM model) and reported key metrics such as accuracy and auc. The team began including precision in Part 3 which is the best metric for this specific use case.
+The full step-by-step analysis is included in the detailed report. Using standardization and one-hot encoding, the team uses Logistic Regression and Support Vector Machines to classify Win and Show. The team used 80% of the data for training and 20% for testing. The team outputted the models in a confusion matrix (shown below for the top SVM model) and reported key metrics such as accuracy and AUC. The team began including precision in Part 3 which is the best metric for this specific use case.
 
 <img width="634" alt="image" src="https://user-images.githubusercontent.com/37990637/158275271-6696fed0-1be6-47e8-b309-2c877173b624.png">
 
@@ -75,7 +75,7 @@ Support Vector Machines outperformed Logistic Regression in this classification.
 
 [Part 3 - KNN, NB, and RF Modeling Report](../main/3_KNN_NB_RF_Modeling/KNN_NB_RF_Modeling_Final.ipynb)
 
-The full step-by-step analysis is included in the detailed report. The team moved to a stratified 10-fold cross validation to better account for the imbalance in the data while training and testing. The team also shifted to precision as the highest importance measurment metric. Using standardization and one-hot encoding, the team optimized models for K-Nearest Neighbors, Naive Bayes, and Random Forest Models. For KNN, the team explored multiple distance calculations and number of neighbors. For Naive Bayes, the team explored the Gaussian and Complement methods while optimizing the smoother parameter. For Random Forest, the team tuned the number of trees and the depth of the model. The report reviews models created using manual feature selection vs recursive feature selection. An example of the recursive feature selection plot is shown below.
+The full step-by-step analysis is included in the detailed report. The team moved to a stratified 10-fold cross validation to better account for the imbalance in the data while training and testing. The team also shifted to precision as the highest importance measurement metric. Using standardization and one-hot encoding, the team optimized models for K-Nearest Neighbors, Naive Bayes, and Random Forest Models. For KNN, the team explored multiple distance calculations and number of neighbors. For Naive Bayes, the team explored the Gaussian and Complement methods while optimizing the smoother parameter. For Random Forest, the team tuned the number of trees and the depth of the model. The report reviews models created using manual feature selection vs recursive feature selection. An example of the recursive feature selection plot is shown below.
 
 <img width="398" alt="image" src="https://user-images.githubusercontent.com/37990637/158277875-71919306-6ad2-4085-b6ee-c62b21a7155b.png">
 
@@ -101,7 +101,7 @@ Also, the report tests if the results of the models were statistically different
 
 [Part 4 - Clustering Report](../main/4_Clustering/Clustering_Final.ipynb)
 
-The full step-by-step analysis is included in the detailed report. The team continued to use a stratified 10-fold cross validation to better account for the imbalance in the data while training and testing. The team also continued to use precision as the highest importance measurment metric. Using standardization and one-hot encoding, the team prepared the data. The team clustered key features in the training data using K-Means, DBSCAN, and Spectral Clustring. The appropriate number of clusters was determined using Silhouette Score and Distance of the nth neighbor plot.
+The full step-by-step analysis is included in the detailed report. The team continued to use a stratified 10-fold cross validation to better account for the imbalance in the data while training and testing. The team also continued to use precision as the highest importance measurement metric. Using standardization and one-hot encoding, the team prepared the data. The team clustered key features in the training data using K-Means, DBSCAN, and Spectral Clustering. The appropriate number of clusters was determined using Silhouette Score and Distance of the nth neighbor plot.
 
 <img width="382" alt="image" src="https://user-images.githubusercontent.com/37990637/158279961-423eabe4-6aef-46f8-8db3-c7b76b8b378c.png">
 
@@ -123,7 +123,7 @@ AdaBoost to predict Show:
 
 <img width="626" alt="image" src="https://user-images.githubusercontent.com/37990637/158280536-75a1f5d4-4a60-4839-9a16-e8482052bd59.png">
 
-AdaBoost was the best model and showed improvement over the second best model Random Forest for classifying Win and Show.
+AdaBoost was the best model and showed improvement over the second-best model Random Forest for classifying Win and Show.
 
 [Back to Top](#BackToTop)
 
@@ -145,7 +145,7 @@ AdaBoost was the best model and showed improvement over the second best model Ra
 
 
 ##### Technologies
-R Studio  
-R version 4.1.2
+Jupyter Notebook 
+Python 3.7.7
 
 [Back to Top](#BackToTop)
