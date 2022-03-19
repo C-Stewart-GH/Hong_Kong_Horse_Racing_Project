@@ -117,7 +117,7 @@ AdaBoost to predict Show:
 
 <img width="626" alt="image" src="https://user-images.githubusercontent.com/37990637/158280536-75a1f5d4-4a60-4839-9a16-e8482052bd59.png">
 
-AdaBoost was the best model and showed improvement over the second-best model Random Forest for classifying Win and Show.
+AdaBoost did improve precision when classifying Win but the AUC dropped resulting in a low amount of positive predictions. The model that best balances AUC and precision for this application is Random Forest.
 
 [Back to Top](#BackToTop)
 
